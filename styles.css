@@ -6,6 +6,7 @@
     font-family: Arial, sans-serif;
 }
 
+/* Light mode (default) */
 body {
     background-color: #f0f4f8;
     color: #333;
@@ -14,6 +15,13 @@ body {
     align-items: center;
     min-height: 100vh;
     padding: 20px;
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+}
+
+/* Dark mode */
+body.dark-mode {
+    background-color: #1a1a1a;
+    color: #ddd;
 }
 
 .container {
@@ -24,11 +32,28 @@ body {
     text-align: center;
     width: 100%;
     max-width: 400px;
+    transition: background 0.3s;
+}
+
+body.dark-mode .container {
+    background: #2c2c2c;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
 }
 
 h1 {
     color: #2c3e50;
-    margin-bottom: 10px;
+    font-size: 1.8em;
+}
+
+body.dark-mode h1 {
+    color: #3498db;
 }
 
 p {
@@ -49,7 +74,13 @@ input[type="number"] {
     border: 2px solid #ddd;
     border-radius: 5px;
     outline: none;
-    transition: border-color 0.3s;
+    transition: border-color 0.3s, background 0.3s;
+}
+
+body.dark-mode input[type="number"] {
+    background: #3a3a3a;
+    border-color: #555;
+    color: #ddd;
 }
 
 input[type="number"]:focus {
@@ -69,6 +100,16 @@ button {
 
 button:hover {
     background-color: #2980b9;
+}
+
+#themeToggle {
+    background-color: #7f8c8d;
+    font-size: 0.9em;
+    padding: 5px 10px;
+}
+
+body.dark-mode #themeToggle {
+    background-color: #34495e;
 }
 
 .output {
@@ -96,5 +137,10 @@ button:hover {
     
     input[type="number"], button {
         font-size: 0.9em;
+    }
+    
+    .header {
+        flex-direction: column;
+        gap: 10px;
     }
 }
